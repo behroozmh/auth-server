@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head>
-    <title>login with user pass</title>
+    <title>login with mobile</title>
 </head>
 <body>
 
 <div th:if="${ #httpServletRequest.remoteUser != null}">
-    <h1>You are Login in with user pass</h1>
+    <h1>You are Login in with mobile</h1>
     <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
     <h2><a href="/profile">user profile</a></h2>
     <br/>
@@ -16,18 +16,16 @@
 </div>
 
 <div th:if="${ #httpServletRequest.remoteUser == null}">
-    <h1>Login in template</h1>
-    <h2>login with user pass</h2>
+    <h2>login with mobile</h2>
     <div th:if="${param.error}">
         Invalid username and password.
     </div>
     <div th:if="${param.logout}">
         You have been logged out.
     </div>
-    <form th:action="@{/login}" method="post">
-        <div><label> User Name : <input type="text" name="username" /> </label></div>
-        <div><label> Password: <input type="password" name="password"/> </label></div>
-        <div><input type="submit" value="Sign In"/></div>
+    <form th:action="@{/lwm}" method="post">
+        <div><label> mobile number : <input type="text" name="mobile"/> </label></div>
+        <div><input type="submit" value="Send Code"/></div>
     </form>
 </div>
 
