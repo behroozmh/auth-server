@@ -23,8 +23,8 @@
     <div th:if="${param.logout}">
         You have been logged out.
     </div>
-    <form th:action="@{/lwm}" method="post">
-        <div><label> mobile number : <input type="text" name="mobile"/> </label></div>
+    <form th:action="@{/lwm}" method="post" >
+        <div><label> mobile number : <input type="text" name="mobile" th:value="mobile"/> </label></div>
         <div><input type="submit" value="Send Code"/></div>
     </form>
 </div>
