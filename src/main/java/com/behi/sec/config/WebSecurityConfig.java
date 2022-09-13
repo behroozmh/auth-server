@@ -3,13 +3,11 @@ package com.behi.sec.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 @Configuration
 @EnableWebSecurity
@@ -25,16 +23,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .loginPage("/lwm")
                 .permitAll()
                 .and()
                 .logout()
-                .permitAll();
+                .permitAll()
+        .and().sessionManagement().maximumSessions(1);
+        http.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+        .and().rememberMe().rememberMeCookieName("re-me").rememberMeParameter("re-me");
     }
 
     @Bean
     public static NoOpPasswordEncoder passwordEncoder() {
-        return  (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
+        return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
     }
 //
 //    @Bean
