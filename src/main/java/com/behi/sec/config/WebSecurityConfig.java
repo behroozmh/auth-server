@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.web.authentication.RememberMeServices;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 @Configuration
@@ -14,6 +15,10 @@ import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private Dashboard dashboard;
+//    @Bean
+//    public RememberMeServices rememberMeServices(){
+//        RememberMeServiceImpl
+//    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -29,7 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
         .and().sessionManagement().maximumSessions(1);
         http.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-        .and().rememberMe().rememberMeCookieName("re-me").rememberMeParameter("re-me");
+        .and().rememberMe().rememberMeParameter("re-me");//.rememberMeServices(rememberMeServices);
     }
 
     @Bean
