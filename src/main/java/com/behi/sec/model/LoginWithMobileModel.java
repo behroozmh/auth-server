@@ -10,9 +10,9 @@ import javax.validation.constraints.NotEmpty;
 @AllArgsConstructor
 @NoArgsConstructor
 public class LoginWithMobileModel {
-    @NotEmpty(message = "{invalid.mobile}")
+    @NotEmpty(message = "invalid.mobile")
     private String mobile;
-    @NotEmpty(message = "{invalid.code}")
+    @NotEmpty(message = "invalid.code")
     private String code;
     private String captcha;
 
