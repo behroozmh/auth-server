@@ -10,9 +10,9 @@ import javax.validation.constraints.NotEmpty;
 @AllArgsConstructor
 @NoArgsConstructor
 public class LoginModel {
-    @NotEmpty(message = "{invalid.username}")
+    @NotEmpty(message = "invalid.username")
     private String username;
-    @NotEmpty(message = "{invalid.password}")
+    @NotEmpty(message = "invalid.password")
     private String password;
     private String captcha;
 
