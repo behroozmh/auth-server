@@ -11,4 +11,10 @@ import org.springframework.context.annotation.PropertySource;
 public class Dashboard {
     @Value("${login.path}")
     private String loginPath;
+    @Value("${logout.path}")
+    private String logoutPath;
+    @Value("${remember.me.cookie}")
+    private String rememberMeCookieName;
+    @Value("${maximum.sessions.number}")
+    private int maximumSessionsNumber;
 }
