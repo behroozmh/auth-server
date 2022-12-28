@@ -8,7 +8,7 @@
 <div th:if="${ #httpServletRequest.remoteUser != null}">
     <h1>You are Login in with mobile</h1>
     <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
-    <h2><a href="/profile">user profile</a></h2>
+    <h2><a href="profile">user profile</a></h2>
     <br/>
     <form th:action="@{/logout}" method="post">
         <input type="submit" value="Sign Out"/>
