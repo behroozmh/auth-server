@@ -64,11 +64,11 @@ public class RequestWrapper extends FirewalledRequest {
             boolean firstHeader = true;
             for (String header : headers) { // there can be multiple Set-Cookie attributes
                 if (firstHeader) {
-                    response.setHeader(HttpHeaders.SET_COOKIE, String.format("%s; %s", header, "SameSite=None")); // set
+                    response.setHeader(HttpHeaders.SET_COOKIE, String.format("%s; %s", header, "SameSite=Lax")); // set
                     firstHeader = false;
                     continue;
                 }
-                response.addHeader(HttpHeaders.SET_COOKIE, String.format("%s; %s", header, "SameSite=None")); // add
+                response.addHeader(HttpHeaders.SET_COOKIE, String.format("%s; %s", header, "SameSite=Lax")); // add
             }
         }
     }
