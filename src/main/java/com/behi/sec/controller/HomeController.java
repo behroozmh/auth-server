@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 /**
  * create User: behrooz.mh
@@ -18,11 +17,6 @@ public class HomeController {
 
     @GetMapping("/")
     public String getHome(HttpServletRequest servletRequest) {
-        HttpSession session = servletRequest.getSession(false);
-        if (session != null) {
-            String username = (String) session.getAttribute("username");
-            log.info("######### username={0} #########", username);
-        }
         return "home";
     }
 }

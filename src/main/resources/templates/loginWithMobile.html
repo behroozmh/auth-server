@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
-<head>
-    <title>login with mobile</title>
+<head th:replace="fragments/head :: head('ورود با موبایل')">
 </head>
 <body>
 
@@ -24,11 +23,12 @@
         You have been logged out.
     </div>
     <form th:action="@{/lwm}" method="post">
-        <div><label> mobile number : <input type="text" name="mobile" th:value="mobile"/> </label></div>
+        <div><label> enter code : <input type="text" name="mobile" /> </label></div>
         <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
-        <div><input type="submit" value="Send Code"/></div>
+        <div><input type="submit" value="Verify Code"/></div>
     </form>
 </div>
 
 </body>
+<script th:replace="fragments/script"></script>
 </html>
