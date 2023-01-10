@@ -19,7 +19,7 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/").permitAll()
+                .antMatchers("/","/lwm", "/static/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -30,10 +30,11 @@ public class WebSecurityConfig {
                 .logoutUrl(dashboard.getLogoutPath())
                 .permitAll()
                 .and().sessionManagement().maximumSessions(dashboard.getMaximumSessionsNumber());
-        //TODO://
+        //
         http.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                 .and()
                 .rememberMe().rememberMeParameter(dashboard.getRememberMeCookieName());
+        //
         return http.build();
     }
 
