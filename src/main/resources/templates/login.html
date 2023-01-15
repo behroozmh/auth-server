@@ -4,7 +4,7 @@
 </head>
 <body style="align-items: center;display: flex;">
 <div class="container">
-    <main class="w-100" style="padding: 10px;!important;">
+    <main class="w-100">
         <div class="row g-5">
             <div th:if="${ #httpServletRequest.remoteUser != null}">
                 <h1>You are Login in with user pass</h1>
@@ -44,9 +44,10 @@
                     <input class="btn btn-lg btn-primary" type="submit" value="Sign In"/>
                 </div>
                 <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
-
             </form>
-            <hr/>
+        </div>
+        <hr class="my-4"/>
+        <div class="row g-5">
             <form th:action="@{/lwm}" method="post">
                 <div class="col-md-4">
                     <label class="form-label"> User Name : </label>
