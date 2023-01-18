@@ -1,0 +1,17 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<div th:fragment="th1" class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="top-toolbar">
+                <a th:href="@{/}">Home</a>
+            </div>
+            <div class="slider">
+                <a th:href="@{/}">Home</a>
+                <a th:href="@{/'profile'}">Profile</a>
+                <a th:href="@{/'links'}">Links</a>
+            </div>
+            <div th:insert="fragments/footer"></div>
+        </div>
+    </div>
+</div>
+</html>
