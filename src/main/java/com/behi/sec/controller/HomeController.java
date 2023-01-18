@@ -19,4 +19,9 @@ public class HomeController {
     public String getHome(HttpServletRequest servletRequest) {
         return "home";
     }
+
+    @GetMapping("/links")
+    public String getLinks(HttpServletRequest servletRequest) {
+        return "links";
+    }
 }
